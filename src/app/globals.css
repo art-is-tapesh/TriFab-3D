@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #0e0e13;
+  --color-surface-low: #131318;
+  --color-surface-high: #1f1f26;
+  --color-surface-highest: #25252c;
+  --color-surface-bright: #2c2b33;
+  
+  --color-primary: #cf96ff;
+  --color-primary-dim: #a533ff;
+  --color-secondary: #00e3fd;
+  --color-tertiary: #ff5ed6;
+
+  --color-on-surface: #f8f5fd;
+  --color-on-surface-variant: #acaab1;
+  --color-outline-variant: #48474d; /* Base Color */
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
+
+  --spacing-gap-component: 24px;
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: color-mix(in srgb, var(--color-surface-high) 60%, transparent);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .ghost-border {
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 15%, transparent);
+  }
+  .ghost-border-hover:hover {
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 40%, transparent);
+  }
+  .neon-gradient-bg {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  }
+  .neon-gradient-text {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .neon-glow {
+    box-shadow: 0 0 100px 0 rgba(0, 227, 253, 0.1);
+  }
+}
+
+:root {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  color-scheme: dark;
+}
